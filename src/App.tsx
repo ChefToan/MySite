@@ -1,10 +1,8 @@
 import { useState } from 'react';
 
 const App = () => {
-    // State to manage dark/light mode
     const [darkMode, setDarkMode] = useState(false);
 
-    // Function to toggle the theme
     const toggleTheme = () => {
         setDarkMode(!darkMode);
     };
@@ -12,7 +10,7 @@ const App = () => {
     return (
         <div id="__next" className={darkMode ? 'dark' : ''}>
             <div className="absolute w-full min-h-screen bg-white dark:bg-dark-gray shadow-none flex flex-col overflow-hidden transition-colors" style={{ zIndex: 999 }}>
-                <div className="w-full h-auto min-h-screen text-white">
+                <div className="w-full h-auto min-h-screen bg-white dark:bg-dark-gray text-white">
                     <div className="w-full h-screen relative flex flex-row gap-24 justify-center px-8">
                         <div className="max-w-6xl bg-gray dark:bg-dark-gray w-full flex flex-row">
                             <div className="w-full md:w-1/2 h-full flex flex-col justify-center z-20 gap-4">
