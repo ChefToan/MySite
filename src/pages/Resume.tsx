@@ -6,7 +6,7 @@ const Resume = () => {
     const { darkMode, toggleTheme } = useTheme();
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen px-4 md:px-16 lg:px-24">
+        <div className="flex flex-col items-center justify-center min-h-screen pt-5 px-4 md:px-16 lg:px-24">
             <h1 className="text-4xl font-extrabold mb-8 text-gray-900 dark:text-gray-50">
                 My Resume
             </h1>
