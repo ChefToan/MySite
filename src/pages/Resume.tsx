@@ -1,11 +1,29 @@
 import { useTheme } from '../ThemeContext';
+import '@react-pdf-viewer/core/lib/styles/index.css';
+// import { Worker, Viewer } from '@react-pdf-viewer/core';
 
 const Resume = () => {
     const { darkMode, toggleTheme } = useTheme();
 
     return (
-        <div>
-            {/* Your resume content here */}
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 md:px-16 lg:px-24">
+            <h1 className="text-4xl font-extrabold mb-8 text-gray-900 dark:text-gray-50">
+                My Resume
+            </h1>
+
+            <div
+                className="w-full max-w-4xl p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-300 dark:border-gray-700">
+                <iframe
+                    src="public/pdfs/resume.pdf"
+                    className="w-full h-screen"
+                    title="Resume"
+                ></iframe>
+
+                {/*<Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">*/}
+                {/*    <Viewer fileUrl="public/pdfs/resume.pdf"/>*/}
+                {/*</Worker>*/}
+            </div>
+
             <footer
                 className="fixed bottom-4 right-4 backdrop-blur-lg p-2 flex flex-row hover:gap-4 items-center rounded-full group">
                 <div

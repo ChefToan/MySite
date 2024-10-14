@@ -1,19 +1,11 @@
 import { useTheme } from '../ThemeContext';
 
-const Resume = () => {
+const Projects = () => {
     const { darkMode, toggleTheme } = useTheme();
 
     return (
         <div>
-            <h1 className="text-3xl font-bold mb-4">My Resume</h1>
-
-            {/* Embed the PDF file */}
-            <iframe
-                // src="public/pdfs/resume.pdf"
-                className="w-full h-screen"
-                title="Resume"
-            ></iframe>
-
+            <h1>Project Page</h1>
             <footer
                 className="fixed bottom-4 right-4 backdrop-blur-lg p-2 flex flex-row hover:gap-4 items-center rounded-full group">
                 <div
@@ -34,4 +26,4 @@ const Resume = () => {
     );
 };
 
-export default Resume;
+export default Projects;
