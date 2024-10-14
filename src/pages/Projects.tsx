@@ -5,7 +5,11 @@ const Projects = () => {
 
     return (
         <div>
-            <h1>Project Page</h1>
+            <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-800 dark:text-gray-200">
+                    To be updated soon :D
+                </h1>
+            </div>
             <footer
                 className="fixed bottom-4 right-4 backdrop-blur-lg p-2 flex flex-row hover:gap-4 items-center rounded-full group">
                 <div
