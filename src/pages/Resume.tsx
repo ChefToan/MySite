@@ -37,7 +37,7 @@ const Resume = () => {
             <div
                 className="flex justify-center items-center w-full max-w-4xl p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-300 dark:border-gray-700">
 
-                <div className="w-full h-[75vh] md:h-[85vh] lg:h-[90vh]">
+                <div className="w-full h-full md:h-[85vh] lg:h-[90vh]">
                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
                         <Viewer
                             fileUrl="/pdfs/resume.pdf"
