@@ -1,9 +1,32 @@
 import { useTheme } from '../ThemeContext';
 import '@react-pdf-viewer/core/lib/styles/index.css';
-// import { Worker, Viewer } from '@react-pdf-viewer/core';
+import { Worker, Viewer } from '@react-pdf-viewer/core';
+import { SpecialZoomLevel } from '@react-pdf-viewer/core';
+import { useEffect, useState } from 'react';
 
 const Resume = () => {
     const { darkMode, toggleTheme } = useTheme();
+    const [scale, setScale] = useState(SpecialZoomLevel.PageWidth); // Default to Page Width for large screens
+
+    // Dynamically set the scale based on screen width
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 768) {
+                setScale(SpecialZoomLevel.PageFit); // For smaller screens, fit the page
+            } else {
+                setScale(SpecialZoomLevel.PageWidth); // For larger screens, scale to page width
+            }
+        };
+
+        // Set initial scale based on current window size
+        handleResize();
+
+        // Attach resize event listener
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup event listener on unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen pt-5 px-4 md:px-16 lg:px-24">
@@ -12,16 +35,16 @@ const Resume = () => {
             </h1>
 
             <div
-                className="w-full max-w-4xl p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-300 dark:border-gray-700">
-                <iframe
-                    src="/pdfs/resume.pdf"
-                    className="w-full h-screen"
-                    title="Resume"
-                ></iframe>
+                className="flex justify-center items-center w-full max-w-4xl p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-300 dark:border-gray-700">
 
-                {/*<Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">*/}
-                {/*    <Viewer fileUrl="public/pdfs/resume.pdf"/>*/}
-                {/*</Worker>*/}
+                <div className="w-full h-full">
+                    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+                        <Viewer
+                            fileUrl="/public/pdfs/resume.pdf"
+                            defaultScale={scale} // Dynamically apply the scale
+                        />
+                    </Worker>
+                </div>
             </div>
 
             <footer
