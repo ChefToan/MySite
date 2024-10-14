@@ -40,7 +40,7 @@ const Resume = () => {
                 <div className="w-full h-full">
                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
                         <Viewer
-                            fileUrl="/public/pdfs/resume.pdf"
+                            fileUrl="/pdfs/resume.pdf"
                             defaultScale={scale} // Dynamically apply the scale
                         />
                     </Worker>
