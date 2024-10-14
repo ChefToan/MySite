@@ -23,7 +23,7 @@ Hello and welcome to my personal portfolio website! This site showcases my proje
 
 ## Contact
 
-If you have any questions or would like to get in touch, please visit the [Contact](./src/pages/ContactCard.tsx) page.
+If you have any questions or would like to get in touch, please visit the [Contact](https://toansite.vercel.app/card) page.
 
 Thank you for visiting!
 
