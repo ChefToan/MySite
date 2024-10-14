@@ -14,7 +14,7 @@ const Resume = () => {
             <div
                 className="w-full max-w-4xl p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-300 dark:border-gray-700">
                 <iframe
-                    src="public/pdfs/resume.pdf"
+                    src="/pdfs/resume.pdf"
                     className="w-full h-screen"
                     title="Resume"
                 ></iframe>
