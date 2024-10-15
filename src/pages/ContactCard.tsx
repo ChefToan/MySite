@@ -1,7 +1,8 @@
+// ContactCard.tsx
 import { useTheme } from "../ThemeContext";
 import { motion } from "framer-motion"; // Import framer-motion for transitions
-import { pageVariants, pageTransition } from "../animations"; // Import the animations
-import { NavLink } from "react-router-dom"; // Import NavLink for active link highlighting
+import { pageVariants} from "../animations"; // Import the animations
+import Nav from "../Nav";
 
 const ContactCard = () => {
     const { darkMode, toggleTheme } = useTheme();
@@ -12,73 +13,21 @@ const ContactCard = () => {
             animate="in"
             exit="out"
             variants={pageVariants}
-            transition={pageTransition}
         >
+            <title>Toan's Site | Contact Card</title>
             {/* Main Wrapper */}
             <div className="flex flex-col w-full min-h-screen">
 
                 {/* Header + Navigation Bar */}
-                <div className="flex flex-col md:flex-row items-center justify-between w-full p-5 bg-white dark:bg-gray-800 shadow-lg">
+                <div
+                    className="flex flex-col md:flex-row items-center justify-between w-full p-5 bg-white dark:bg-gray-800 shadow-lg">
                     {/* Header (My Contacts) */}
                     <h1 className="text-2xl font-extrabold text-gray-900 dark:text-gray-50 text-center md:text-left">
                         My Contacts
                     </h1>
 
-                    {/* Navigation Bar */}
-                    <nav className="flex space-x-6 mt-4 md:mt-0">
-                        <NavLink
-                            end
-                            to="/"
-                            className={({ isActive }) =>
-                                `text-lg font-montserrat ${
-                                    isActive
-                                        ? "text-purple-800 dark:text-purple-400 underline font-bold"
-                                        : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
-                                }`
-                            }
-                        >
-                            Home
-                        </NavLink>
-                        <NavLink
-                            end
-                            to="/resume"
-                            className={({ isActive }) =>
-                                `text-lg font-montserrat ${
-                                    isActive
-                                        ? "text-purple-800 dark:text-purple-400 underline font-bold"
-                                        : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
-                                }`
-                            }
-                        >
-                            Resume
-                        </NavLink>
-                        <NavLink
-                            end
-                            to="/projects"
-                            className={({ isActive }) =>
-                                `text-lg font-montserrat ${
-                                    isActive
-                                        ? "text-purple-800 dark:text-purple-400 underline font-bold"
-                                        : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
-                                }`
-                            }
-                        >
-                            Projects
-                        </NavLink>
-                        <NavLink
-                            end
-                            to="/card"
-                            className={({ isActive }) =>
-                                `text-lg font-montserrat ${
-                                    isActive
-                                        ? "text-purple-800 dark:text-purple-400 underline font-bold"
-                                        : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
-                                }`
-                            }
-                        >
-                            Contact Card
-                        </NavLink>
-                    </nav>
+                    <Nav />
+
                 </div>
 
                 {/* Page Content */}

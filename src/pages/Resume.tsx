@@ -1,7 +1,8 @@
+// Resume.tsx
 import { useTheme } from '../ThemeContext';
 import { motion } from 'framer-motion';
-import { pageVariants, pageTransition } from '../animations';
-import { NavLink } from 'react-router-dom';
+import { pageVariants } from '../animations';
+import Nav from "../Nav";
 
 const Resume = () => {
     const { darkMode, toggleTheme } = useTheme();
@@ -12,8 +13,8 @@ const Resume = () => {
             animate="in"
             exit="out"
             variants={pageVariants}
-            transition={pageTransition}
         >
+            <title>Toan's Site | Resume</title>
             {/* Main Wrapper */}
             <div className="flex flex-col w-full min-h-screen">
 
@@ -24,61 +25,7 @@ const Resume = () => {
                         My Resume
                     </h1>
 
-                    {/* Navigation Bar */}
-                    <nav className="flex space-x-6 mt-4 md:mt-0">
-                        <NavLink
-                            end
-                            to="/"
-                            className={({ isActive }) =>
-                                `text-lg font-montserrat ${
-                                    isActive
-                                        ? "text-purple-800 dark:text-purple-400 underline font-bold"
-                                        : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
-                                }`
-                            }
-                        >
-                            Home
-                        </NavLink>
-                        <NavLink
-                            end
-                            to="/resume"
-                            className={({ isActive }) =>
-                                `text-lg font-montserrat ${
-                                    isActive
-                                        ? "text-purple-800 dark:text-purple-400 underline font-bold"
-                                        : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
-                                }`
-                            }
-                        >
-                            Resume
-                        </NavLink>
-                        <NavLink
-                            end
-                            to="/projects"
-                            className={({ isActive }) =>
-                                `text-lg font-montserrat ${
-                                    isActive
-                                        ? "text-purple-800 dark:text-purple-400 underline font-bold"
-                                        : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
-                                }`
-                            }
-                        >
-                            Projects
-                        </NavLink>
-                        <NavLink
-                            end
-                            to="/card"
-                            className={({ isActive }) =>
-                                `text-lg font-montserrat ${
-                                    isActive
-                                        ? "text-purple-800 dark:text-purple-400 underline font-bold"
-                                        : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
-                                }`
-                            }
-                        >
-                            Contact Card
-                        </NavLink>
-                    </nav>
+                    <Nav />
                 </div>
 
                 {/* Content Wrapper (iframe PDF) */}

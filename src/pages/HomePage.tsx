@@ -1,6 +1,7 @@
+// HomePage.tsx
 import { useTheme } from '../ThemeContext';
 import { motion } from 'framer-motion';
-import { pageVariants, pageTransition } from '../animations';
+import { pageVariants } from '../animations';
 
 const HomePage = () => {
     const { darkMode, toggleTheme } = useTheme();
@@ -11,8 +12,8 @@ const HomePage = () => {
             animate="in"
             exit="out"
             variants={pageVariants}
-            transition={pageTransition}
         >
+            <title>Toan's Site | Home</title>
             <div>
                 <div className="w-full h-auto min-h-screen text-white">
                     <div className="w-full h-screen relative flex flex-row gap-24 justify-center px-8">
