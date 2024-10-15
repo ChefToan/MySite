@@ -1,15 +1,88 @@
 import { useTheme } from '../ThemeContext';
+import { motion } from 'framer-motion'; // Import framer-motion for transitions
+import { pageVariants, pageTransition } from '../animations'; // Import the animations
+import { NavLink } from 'react-router-dom'; // Import NavLink for active link highlighting
 
 const Projects = () => {
     const { darkMode, toggleTheme } = useTheme();
 
     return (
-        <div>
-            <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+        <motion.div
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+        >
+            {/* Navigation Bar */}
+            <div className="flex justify-between items-center w-full p-5 bg-white dark:bg-gray-800 shadow-lg">
+                <h1 className="text-2xl font-extrabold text-gray-900 dark:text-gray-50">
+                    My Projects
+                </h1>
+                <nav className="flex space-x-6">
+                    <NavLink
+                        end
+                        to="/"
+                        className={({ isActive }) =>
+                            `text-lg font-montserrat ${
+                                isActive
+                                    ? "text-purple-800 dark:text-purple-400 underline font-bold"
+                                    : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
+                            }`
+                        }
+                    >
+                        Home
+                    </NavLink>
+                    <NavLink
+                        end
+                        to="/resume"
+                        className={({ isActive }) =>
+                            `text-lg font-montserrat ${
+                                isActive
+                                    ? "text-purple-800 dark:text-purple-400 underline font-bold"
+                                    : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
+                            }`
+                        }
+                    >
+                        Resume
+                    </NavLink>
+                    <NavLink
+                        end
+                        to="/projects"
+                        className={({ isActive }) =>
+                            `text-lg font-montserrat ${
+                                isActive
+                                    ? "text-purple-800 dark:text-purple-400 underline font-bold"
+                                    : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
+                            }`
+                        }
+                    >
+                        Projects
+                    </NavLink>
+                    <NavLink
+                        end
+                        to="/card"
+                        className={({ isActive }) =>
+                            `text-lg font-montserrat ${
+                                isActive
+                                    ? "text-purple-800 dark:text-purple-400 underline font-bold"
+                                    : "text-gray-400 dark:text-gray-500 hover:text-purple-800 dark:hover:text-purple-400 hover:underline"
+                            }`
+                        }
+                    >
+                        Contact Card
+                    </NavLink>
+                </nav>
+            </div>
+
+            {/* Page Content */}
+            <div className="flex items-center justify-center min-h-screen">
                 <h1 className="text-4xl md:text-6xl font-bold text-gray-800 dark:text-gray-200">
                     To be updated soon :D
                 </h1>
             </div>
+
+            {/* Footer for Dark/Light Mode Toggle */}
             <footer
                 className="fixed bottom-4 right-4 backdrop-blur-lg p-2 flex flex-row hover:gap-4 items-center rounded-full group">
                 <div
@@ -26,7 +99,7 @@ const Projects = () => {
                     </svg>
                 </button>
             </footer>
-        </div>
+        </motion.div>
     );
 };
 

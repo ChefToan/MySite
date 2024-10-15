@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import HomePage from './pages/HomePage.tsx';
 import Resume from './pages/Resume.tsx';
 import Project from './pages/Projects.tsx';
@@ -8,7 +9,7 @@ import ContactCard from './pages/ContactCard.tsx';
 import NotFoundPage from './pages/NotFoundPage.tsx';
 import { ThemeProvider } from './ThemeContext'; // import ThemeProvider
 import Layout from './Layout'; // import the new Layout component
-import './index.css';
+import './Index.css';
 
 const router = createBrowserRouter([
     {
@@ -39,7 +40,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <ThemeProvider>
-            <RouterProvider router={router} />
+            <AnimatePresence mode="wait">
+                <RouterProvider router={router} />
+            </AnimatePresence>
         </ThemeProvider>
     </StrictMode>,
 );
