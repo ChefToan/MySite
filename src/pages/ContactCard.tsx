@@ -88,7 +88,7 @@ const ContactCard = () => {
                             To be updated soon :D
                         </h1>
                         <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-                            For the time being, please see my contact info on my resume at my
+                            For the time being, please see my contact info on my
                             <a
                                 href="https://toansite.vercel.app/resume"
                                 className="text-blue-500 dark:text-blue-300 underline ml-1"
