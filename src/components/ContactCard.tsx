@@ -1,6 +1,6 @@
 // ContactCard.tsx
-import { useTheme } from "../ThemeContext";
-import Nav from "../Nav";
+import { useTheme } from "../context/ThemeContext.tsx";
+import HeaderNavBar from "./HeaderNavBar.tsx";
 
 const ContactCard = () => {
     const { darkMode, toggleTheme } = useTheme();
@@ -19,7 +19,7 @@ const ContactCard = () => {
                         My Contacts
                     </h1>
 
-                    <Nav />
+                    <HeaderNavBar />
 
                 </div>
 

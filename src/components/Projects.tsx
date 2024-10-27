@@ -1,6 +1,6 @@
 // Projects.tsx
-import { useTheme } from '../ThemeContext';
-import Nav from '../Nav';
+import { useTheme } from '../context/ThemeContext.tsx';
+import HeaderNavBar from './HeaderNavBar.tsx';
 
 const Projects = () => {
     const { darkMode, toggleTheme } = useTheme();
@@ -18,7 +18,7 @@ const Projects = () => {
                         My Projects
                     </h1>
 
-                    <Nav />
+                    <HeaderNavBar />
                 </div>
 
                 {/* Page Content */}

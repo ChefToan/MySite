@@ -1,6 +1,6 @@
-// src/router/NotRouter.tsx
-import { Routes, Route } from 'react-router-dom';
-import { TransitionProvider } from '../context/TransitionContext';
+// src/router/Router.tsx
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import TransitionComponent from '../components/Transition';
 import HomePage from '../components/HomePage';
 import Resume from '../components/Resume';
@@ -8,10 +8,12 @@ import Project from '../components/Projects';
 import ContactCard from '../components/ContactCard';
 import NotFoundPage from '../components/NotFoundPage';
 
-const NotRouter = () => {
+const Router = () => {
+    const location = useLocation();
+
     return (
-        <TransitionProvider>
-            <Routes>
+        <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
                 <Route
                     path="/"
                     element={
@@ -49,8 +51,8 @@ const NotRouter = () => {
                     element={<NotFoundPage />}
                 />
             </Routes>
-        </TransitionProvider>
+        </AnimatePresence>
     );
 };
 
-export default NotRouter;
+export default Router;

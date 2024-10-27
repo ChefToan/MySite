@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const Nav = () => {
+const HeaderNavBar = () => {
     return (
         <nav className="flex space-x-6 mt-4 md:mt-0">
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
@@ -61,11 +61,11 @@ const Nav = () => {
                         }`
                     }
                 >
-                    Contact Card
+                    Contacts
                 </NavLink>
             </motion.div>
         </nav>
     );
 };
 
-export default Nav;
+export default HeaderNavBar;

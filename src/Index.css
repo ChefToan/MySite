@@ -1,3 +1,11 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add any global styles here */
+@layer base {
+    body {
+        @apply bg-white text-gray-900 transition-colors duration-200 ease-in-out dark:bg-dark-gray dark:text-white;
+    }
+}

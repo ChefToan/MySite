@@ -1,6 +1,6 @@
 // Resume.tsx
-import { useTheme } from '../ThemeContext';
-import Nav from "../Nav";
+import { useTheme } from '../context/ThemeContext.tsx';
+import HeaderNavBar from "./HeaderNavBar.tsx";
 
 const Resume = () => {
     const { darkMode, toggleTheme } = useTheme();
@@ -18,7 +18,7 @@ const Resume = () => {
                         My Resume
                     </h1>
 
-                    <Nav />
+                    <HeaderNavBar />
                 </div>
 
                 {/* Content Wrapper (iframe PDF) */}

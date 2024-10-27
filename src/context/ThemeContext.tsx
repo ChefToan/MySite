@@ -1,40 +1,44 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+// src/context/ThemeContext.tsx
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
-interface ThemeContextProps {
+interface ThemeContextType {
     darkMode: boolean;
     toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const useTheme = () => {
     const context = useContext(ThemeContext);
-    if (!context) {
+    if (context === undefined) {
         throw new Error('useTheme must be used within a ThemeProvider');
     }
     return context;
 };
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [darkMode, setDarkMode] = useState(false);
-
-    useEffect(() => {
-        const savedTheme = localStorage.getItem('darkMode');
+    // Initialize theme from localStorage or system preference
+    const [darkMode, setDarkMode] = useState(() => {
+        const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
-            setDarkMode(JSON.parse(savedTheme));
+            return savedTheme === 'dark';
         }
-        // Apply the dark or light mode class to the root HTML element
-        document.documentElement.classList.toggle('dark', JSON.parse(savedTheme ?? 'false'));
-    }, []);
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    });
+
+    // Update theme in localStorage and apply to document
+    useEffect(() => {
+        if (darkMode) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
+    }, [darkMode]);
 
     const toggleTheme = () => {
-        setDarkMode((prevMode) => {
-            const newMode = !prevMode;
-            localStorage.setItem('darkMode', JSON.stringify(newMode));
-            // Apply or remove the dark class on the root HTML element
-            document.documentElement.classList.toggle('dark', newMode);
-            return newMode;
-        });
+        setDarkMode(prev => !prev);
     };
 
     return (
@@ -43,3 +47,5 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
         </ThemeContext.Provider>
     );
 };
+
+export default ThemeContext;
