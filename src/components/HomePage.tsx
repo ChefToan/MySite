@@ -1,18 +1,11 @@
 // HomePage.tsx
 import { useTheme } from '../ThemeContext';
-import { motion } from 'framer-motion';
-import { pageVariants } from '../animations';
 
 const HomePage = () => {
     const { darkMode, toggleTheme } = useTheme();
 
     return (
-        <motion.div
-            initial="initial"
-            animate="in"
-            exit="out"
-            variants={pageVariants}
-        >
+        <div>
             <title>Toan's Site | Home</title>
             <div>
                 <div className="w-full h-auto min-h-screen text-white">
@@ -69,7 +62,7 @@ const HomePage = () => {
                     </button>
                 </footer>
             </div>
-        </motion.div>
+        </div>
     );
 };
 

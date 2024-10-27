@@ -1,19 +1,12 @@
 // Resume.tsx
 import { useTheme } from '../ThemeContext';
-import { motion } from 'framer-motion';
-import { pageVariants } from '../animations';
 import Nav from "../Nav";
 
 const Resume = () => {
     const { darkMode, toggleTheme } = useTheme();
 
     return (
-        <motion.div
-            initial="initial"
-            animate="in"
-            exit="out"
-            variants={pageVariants}
-        >
+        <div>
             <title>Toan's Site | Resume</title>
             {/* Main Wrapper */}
             <div className="flex flex-col w-full min-h-screen">
@@ -57,7 +50,7 @@ const Resume = () => {
                     </button>
                 </footer>
             </div>
-        </motion.div>
+        </div>
     );
 };
 

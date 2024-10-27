@@ -1,19 +1,12 @@
 // ContactCard.tsx
 import { useTheme } from "../ThemeContext";
-import { motion } from "framer-motion"; // Import framer-motion for transitions
-import { pageVariants} from "../animations"; // Import the animations
 import Nav from "../Nav";
 
 const ContactCard = () => {
     const { darkMode, toggleTheme } = useTheme();
 
     return (
-        <motion.div
-            initial="initial"
-            animate="in"
-            exit="out"
-            variants={pageVariants}
-        >
+        <div>
             <title>Toan's Site | Contact Card</title>
             {/* Main Wrapper */}
             <div className="flex flex-col w-full min-h-screen">
@@ -70,7 +63,7 @@ const ContactCard = () => {
                     </button>
                 </footer>
             </div>
-        </motion.div>
+        </div>
     );
 };
 
