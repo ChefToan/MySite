@@ -1,36 +1,33 @@
 // src/components/Transition.tsx
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 
 const TransitionComponent = ({ children }: { children: ReactNode }) => {
     const location = useLocation();
     const isHomePage = location.pathname === '/';
-    const [isInitialRender, setIsInitialRender] = useState(true);
 
-    // Reset initial render state on page refresh
-    useEffect(() => {
-        setIsInitialRender(true);
-        return () => setIsInitialRender(false);
-    }, []);
-
-    // HomePage variants with left exit
     const homePageVariants = {
         initial: {
             opacity: 0,
-            x: '-100%',
         },
         animate: {
             opacity: 1,
-            x: 0,
+            transition: {
+                duration: 0.4,
+                when: "beforeChildren",
+                staggerChildren: 0.1
+            }
         },
         exit: {
-            opacity: 0,
-            x: '-100%', // Exit to the left
+            x: '-100%',
+            transition: {
+                duration: 0.4,
+                ease: [0.25, 0.1, 0.25, 1],
+            }
         },
     };
 
-    // Other pages variants
     const pageVariants = {
         initial: {
             opacity: 0,
@@ -39,27 +36,29 @@ const TransitionComponent = ({ children }: { children: ReactNode }) => {
         animate: {
             opacity: 1,
             x: 0,
+            transition: {
+                duration: 0.4,
+                ease: [0.25, 0.1, 0.25, 1],
+                when: "beforeChildren"
+            }
         },
         exit: {
             opacity: 0,
             x: '-100%',
+            transition: {
+                duration: 0.4,
+                ease: [0.25, 0.1, 0.25, 1],
+            }
         },
-    };
-
-    const transition = {
-        type: "tween",
-        duration: 0.4,
-        ease: [0.25, 0.1, 0.25, 1],
     };
 
     return (
         <motion.div
-            initial={isInitialRender ? "initial" : false}
+            initial="initial"
             animate="animate"
             exit="exit"
             variants={isHomePage ? homePageVariants : pageVariants}
-            transition={transition}
-            className="w-full min-h-screen absolute"
+            className="w-full min-h-screen absolute bg-white dark:bg-dark-gray"
             style={{
                 position: 'absolute',
                 width: '100%',

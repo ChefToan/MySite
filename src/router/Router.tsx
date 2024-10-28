@@ -1,6 +1,5 @@
 // src/router/Router.tsx
 import { Routes, Route, useLocation } from 'react-router-dom';
-// import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import TransitionComponent from '../components/Transition';
 import Layout from '../components/Layout';
@@ -14,15 +13,13 @@ const Router = () => {
     const location = useLocation();
 
     return (
-        <AnimatePresence mode="wait" initial={false}>
+        <AnimatePresence mode="wait" initial={true}>
             <Routes location={location} key={location.pathname}>
                 <Route
                     path="/"
                     element={
                         <Layout showHeader={false}>
-                            <TransitionComponent>
-                                <HomePage />
-                            </TransitionComponent>
+                            <HomePage />
                         </Layout>
                     }
                 />

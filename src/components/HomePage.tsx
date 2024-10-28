@@ -1,18 +1,34 @@
-// ./components/HomePage.tsx
+// ./src/components/HomePage.tsx
 import { useTheme } from '../context/ThemeContext';
-import { Link } from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
+// import { Routes, Route, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const HomePage = () => {
     const { darkMode, toggleTheme } = useTheme();
+    const location = useLocation();
 
     const containerVariants = {
-        initial: { opacity: 0 },
+        initial: {
+            opacity: 0,
+            x: '100%'
+        },
         animate: {
             opacity: 1,
+            x: 0,
             transition: {
+                duration: 0.4,
+                ease: [0.25, 0.1, 0.25, 1],
                 when: "beforeChildren",
-                staggerChildren: 0.2
+                staggerChildren: 0.2,
+            }
+        },
+        exit: {
+            opacity: 0,
+            x: '-100%',
+            transition: {
+                duration: 0.4,
+                ease: [0.25, 0.1, 0.25, 1],
             }
         }
     };
@@ -26,6 +42,7 @@ const HomePage = () => {
             opacity: 1,
             y: 0,
             transition: {
+                duration: 0.6,
                 type: "spring",
                 stiffness: 100,
                 damping: 10,
@@ -89,10 +106,12 @@ const HomePage = () => {
 
     return (
         <motion.div
+            key={location.pathname}
             initial="initial"
             animate="animate"
+            exit="exit"
             variants={containerVariants}
-            className="w-full min-h-screen"
+            className="w-full min-h-screen bg-white dark:bg-dark-gray"
         >
             <title>Toan's Site | Home</title>
             <div>
@@ -138,9 +157,9 @@ const HomePage = () => {
                                             Resume
                                             <motion.div
                                                 className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-800 dark:bg-purple-400"
-                                                initial={{ width: "0%" }}
-                                                whileHover={{ width: "100%" }}
-                                                transition={{ duration: 0.2 }}
+                                                initial={{width: "0%"}}
+                                                whileHover={{width: "100%"}}
+                                                transition={{duration: 0.2}}
                                             />
                                         </Link>
                                     </motion.div>
@@ -157,9 +176,9 @@ const HomePage = () => {
                                             Projects
                                             <motion.div
                                                 className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-800 dark:bg-purple-400"
-                                                initial={{ width: "0%" }}
-                                                whileHover={{ width: "100%" }}
-                                                transition={{ duration: 0.2 }}
+                                                initial={{width: "0%"}}
+                                                whileHover={{width: "100%"}}
+                                                transition={{duration: 0.2}}
                                             />
                                         </Link>
                                     </motion.div>
@@ -176,9 +195,9 @@ const HomePage = () => {
                                             Contacts
                                             <motion.div
                                                 className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-800 dark:bg-purple-400"
-                                                initial={{ width: "0%" }}
-                                                whileHover={{ width: "100%" }}
-                                                transition={{ duration: 0.2 }}
+                                                initial={{width: "0%"}}
+                                                whileHover={{width: "100%"}}
+                                                transition={{duration: 0.2}}
                                             />
                                         </Link>
                                     </motion.div>
@@ -202,7 +221,8 @@ const HomePage = () => {
                     variants={mainContentVariants}
                     className="fixed bottom-4 right-4 backdrop-blur-lg p-2 flex flex-row hover:gap-4 items-center rounded-full group"
                 >
-                    <div className="flex flex-row gap-0 items-center justify-center text-gray-900/40 dark:text-gray-100/50 group-hover:max-w-2xl max-w-0 overflow-hidden transition-all duration-150 whitespace-nowrap group-hover:pl-2">
+                    <div
+                        className="flex flex-row gap-0 items-center justify-center text-gray-900/40 dark:text-gray-100/50 group-hover:max-w-2xl max-w-0 overflow-hidden transition-all duration-150 whitespace-nowrap group-hover:pl-2">
                         Toggle {darkMode ? 'Light' : 'Dark'} Mode
                     </div>
                     <button
