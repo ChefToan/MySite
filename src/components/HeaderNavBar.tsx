@@ -1,3 +1,4 @@
+// ./components/HeaderNavBar.tsx
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 

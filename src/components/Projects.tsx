@@ -1,6 +1,6 @@
-// Projects.tsx
+// ./components/Projects.tsx
 import { useTheme } from '../context/ThemeContext.tsx';
-import HeaderNavBar from './HeaderNavBar.tsx';
+// import HeaderNavBar from './HeaderNavBar.tsx';
 
 const Projects = () => {
     const { darkMode, toggleTheme } = useTheme();
@@ -11,15 +11,15 @@ const Projects = () => {
             {/* Main Wrapper */}
             <div className="flex flex-col w-full min-h-screen">
 
-                {/* Header + Navigation Bar */}
-                <div className="flex flex-col md:flex-row items-center justify-between w-full p-5 bg-white dark:bg-gray-800 shadow-lg">
-                    {/* Header (My Projects) */}
-                    <h1 className="text-2xl font-extrabold text-gray-900 dark:text-gray-50 text-center md:text-left">
-                        My Projects
-                    </h1>
+                {/*/!* Header + Navigation Bar *!/*/}
+                {/*<div className="flex flex-col md:flex-row items-center justify-between w-full p-5 bg-white dark:bg-gray-800 shadow-lg">*/}
+                {/*    /!* Header (My Projects) *!/*/}
+                {/*    <h1 className="text-2xl font-extrabold text-gray-900 dark:text-gray-50 text-center md:text-left">*/}
+                {/*        My Projects*/}
+                {/*    </h1>*/}
 
-                    <HeaderNavBar />
-                </div>
+                {/*    <HeaderNavBar />*/}
+                {/*</div>*/}
 
                 {/* Page Content */}
                 <div className="flex items-center justify-center min-h-screen">

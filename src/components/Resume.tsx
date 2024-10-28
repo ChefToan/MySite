@@ -1,6 +1,6 @@
-// Resume.tsx
+// ./components/Resume.tsx
 import { useTheme } from '../context/ThemeContext.tsx';
-import HeaderNavBar from "./HeaderNavBar.tsx";
+// import HeaderNavBar from "./HeaderNavBar.tsx";
 
 const Resume = () => {
     const { darkMode, toggleTheme } = useTheme();
@@ -12,14 +12,14 @@ const Resume = () => {
             <div className="flex flex-col w-full min-h-screen">
 
                 {/* Header + Navigation Bar */}
-                <div className="flex flex-col md:flex-row items-center justify-between w-full p-5 bg-white dark:bg-gray-800 shadow-lg">
-                    {/* Header (My Resume) */}
-                    <h1 className="text-2xl font-extrabold text-gray-900 dark:text-gray-50 text-center md:text-left">
-                        My Resume
-                    </h1>
+                {/*<div className="flex flex-col md:flex-row items-center justify-between w-full p-5 bg-white dark:bg-gray-800 shadow-lg">*/}
+                {/*    /!* Header (My Resume) *!/*/}
+                {/*    <h1 className="text-2xl font-extrabold text-gray-900 dark:text-gray-50 text-center md:text-left">*/}
+                {/*        My Resume*/}
+                {/*    </h1>*/}
 
-                    <HeaderNavBar />
-                </div>
+                {/*    <HeaderNavBar />*/}
+                {/*</div>*/}
 
                 {/* Content Wrapper (iframe PDF) */}
                 <div className="flex flex-col items-center justify-center w-full flex-1 p-4 md:px-16 lg:px-24">
